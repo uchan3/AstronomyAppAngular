@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Astronomy.API.Helpers;
-using Astronomy.API.Models;
 using Astronomy.Domain;
 using Microsoft.AspNetCore.Mvc;
 
