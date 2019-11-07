@@ -1,5 +1,7 @@
 export class Catalog {
-  id: string;
-  name: string;
+  CatalogId: string;
+  Name: string;
+  DateCreated: string;
+  DateModified: string;
   
 }
