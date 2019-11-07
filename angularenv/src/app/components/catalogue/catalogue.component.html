@@ -1,19 +1,32 @@
 <p>catalogue works!</p>
 
 <h1>Browse through the Deep Sky Catalogue.</h1>
-<table>
-  <!--These are the columns.-->
-  <th>NGCID</th>
-  <th>Name</th>
-  <th>Post</th>
-  <th>Comments</th>
 
-  <tr *ngFor="let catalog of catalogList">
-    <td>{{catalog.id}}</td>
-    <td>{{catalog.name}}</td>
-  </tr>
+<h2>This is a table</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>NGCID</th>
+      <th>Name</th>
+      <th>Post Title</th>
+      <th>Comments</th>
+      <th>Picture</th>
+    </tr>    
+  </thead>
+
+  <tbody *ngFor="let catalog of catalogList, let i = index">
+    <tr> 
+      <td>{{catalog.id}}</td>
+      <td>{{catalog.name}}</td>
+      
+      <!--Traverse thru the postList.-->
+      <td>{{postList[i].title}}</td>
+      <td>{{postList[i].description}}</td>
+    </tr>
+  </tbody>
 </table>
 
+<h2>Make the changes to the table.</h2>
 <div>
   <label>Add a new catalog entry: </label> <br>
   <label>Catalog Id: <input type="text" #CatalogId></label> <br>
@@ -26,6 +39,5 @@
 <div>
   <label>Delete a catalog entry: </label> <br>
   <label>Catalog Id: <input type="text" #DeleteId></label> <br>
-  
   <button (click)= "delete(DeleteId.value)">Delete Catalog Entry</button> 
 </div>
