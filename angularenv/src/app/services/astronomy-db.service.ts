@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { User } from 'src/app/classes/User'; 
 import { Catalog } from '../classes/Catalog';
 import { Post } from '../classes/Post';
+import { GeneratedFile } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +21,13 @@ export class AstronomyDBService  implements InMemoryDbService {
       {UserID: 'User1', LastName: 'Doe', FirstName: 'John', DateCreated: '8/1/2016', DateModified: ''}, 
       {UserID: 'User2', LastName: 'Cheung', FirstName: 'Liu', DateCreated: '9/1/2016', DateModified: ''}, 
       {UserID: 'User3', LastName: 'Sanchez', FirstName: 'Maria', DateCreated: '10/1/2016', DateModified: ''}, 
-    ]
+    ];
 
-    let CatalogList: Catalog[] =
+    let CatalogList =
     [
-      {CatalogId: 'NGC 5194', Name: 'WhirlPool Galaxy', DateCreated: '5/1/2019', DateModified: ''}, 
-      {CatalogId: 'NGC 1976', Name: 'Orion Nebula', DateCreated: '5/1/2019', DateModified: ''}
-    ]
+      {id: 1, CatalogId: 'NGC 5194', Name: 'WhirlPool Galaxy', DateCreated: '5/1/2019', DateModified: ''}, 
+      {id: 2, CatalogId: 'NGC 1976', Name: 'Orion Nebula', DateCreated: '5/1/2019', DateModified: ''}
+    ];
 
     let PostList: Post[] = 
     [
@@ -42,8 +43,14 @@ export class AstronomyDBService  implements InMemoryDbService {
       {PostId: 'P4', title: 'WhirlPool Galaxy', description: 'Located within constellation Canes Venatici, Based on video by NASA', 
       url: 'https://cdn.mos.cms.futurecdn.net/raU4GNzSgWBD9ustuBkaL5-650-80.jpg', 
       UserId: 'User2', CatalogId: 'NGC 5194'}, 
-    ]
-     
+    ];
+    
+    // genId(CatalogList: Catalog[]): number {
+    //   return CatalogList.length > 0 ? Math.max(...CatalogList.map(catalog => catalog.DBId)) + 1 : 1;
+    // }
+
     return { UserList, CatalogList, PostList};
+
+  
   }
 }

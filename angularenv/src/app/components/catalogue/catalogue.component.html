@@ -6,6 +6,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>ID</th>
       <th>NGCID</th>
       <th>Name</th>
       <th>Post Title</th>
@@ -14,31 +15,55 @@
     </tr>    
   </thead>
 
-  <tbody *ngFor="let catalog of catalogList, let i = index">
+  <tbody *ngFor="let catalog of catalogList">
     <tr> 
-      <td>{{catalog.id}}</td>
-      <td>{{catalog.name}}</td>
+      <td>{{catalog.id}}</td> <!--For reference-->
+      <td>{{catalog.CatalogId}}</td>
+      <td>{{catalog.Name}}</td>
       
       <!--Traverse thru the postList.-->
-      <td>{{postList[i].title}}</td>
-      <td>{{postList[i].description}}</td>
-      <td><img src="{{postList[i].url}}" class="responsive"></td>
+      <!--<td>{{postList[i].title}}</td>-->
+
     </tr>
   </tbody>
 </table>
 
-<h2>Make the changes to the table.</h2>
+<h2>Catalog CRUD Operations</h2>
 <div>
   <label>Add a new catalog entry: </label> <br>
   <label>Catalog Id: <input type="text" #CatalogId></label> <br>
   <label>Catalog Name: <input type="text" #CatalogName> </label>
   
   <!--Need to include the value!!!-->
-  <button (click)= "add(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
+  <button (click)= "addCatalog(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
+</div>
+
+<div>
+  <label>Search for a catalog id by id, NOT NGCID!!!: </label> <br>
+  <label>Catalog Name: <input type="number" #SearchCatalogName> </label>
+  <button (click)="getCatalogEntry(SearchCatalogName.value)"> Get Entry </button>
+
+  <div>
+    <h2>Here is the entry with the following info: </h2>
+    <div *ngIf="catalogEntry"> 
+      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}} .
+        The name of the entry is {{catalogEntry.Name}}
+      </h3>  
+  </div>
+  
+</div>
+
+<div>
+  <label>Update a specific catalog entry: </label> <br>
+  <label>Catalog Id: <input type="text" #UpdateCatalogId></label> <br>
+  <label>Catalog Name: <input type="text" #UpdateCatalogName> </label>
+  
+  <!--Need to include the value!!!-->
+  <button (click)= "updateCatalog(UpdateCatalogId.value, UpdateCatalogName.value)">Update Catalog Entry</button> 
 </div>
 
 <div>
   <label>Delete a catalog entry: </label> <br>
-  <label>Catalog Id: <input type="text" #DeleteId></label> <br>
-  <button (click)= "delete(DeleteId.value)">Delete Catalog Entry</button> 
+  <label>Catalog Id: <input type="string" #DeleteId></label> <br>
+  <button (click)= "deleteCatalog(DeleteId.value)">Delete Catalog Entry</button> 
 </div>

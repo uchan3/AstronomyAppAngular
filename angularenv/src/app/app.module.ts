@@ -25,7 +25,8 @@ import { CommentComponent } from './components/comment/comment.component';
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule, 
+    HttpClientInMemoryWebApiModule.forRoot( AstronomyDBService, {dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]
