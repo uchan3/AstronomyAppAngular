@@ -1,14 +1,13 @@
-<p>catalogue works!</p>
-
 <h1>Browse through the Deep Sky Catalogue.</h1>
 
-<h2>This is a table</h2>
 <table class="table table-bordered">
   <thead>
     <tr>
       <th>ID</th>
       <th>NGCID</th>
       <th>Name</th>
+      <th>Date Created</th>
+      <th>Date Modified</th>
       <th>Post Title</th>
       <th>Comments</th>
       <th>Picture</th>
@@ -20,6 +19,8 @@
       <td>{{catalog.id}}</td> <!--For reference-->
       <td>{{catalog.CatalogId}}</td>
       <td>{{catalog.Name}}</td>
+      <td>{{catalog.DateCreated}}</td>
+      <td>{{catalog.DateModified}}</td>
       
       <!--Traverse thru the postList.-->
       <!--<td>{{postList[i].title}}</td>-->
@@ -33,37 +34,36 @@
   <label>Add a new catalog entry: </label> <br>
   <label>Catalog Id: <input type="text" #CatalogId></label> <br>
   <label>Catalog Name: <input type="text" #CatalogName> </label>
-  
-  <!--Need to include the value!!!-->
   <button (click)= "addCatalog(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
 </div>
 
 <div>
-  <label>Search for a catalog id by id, NOT NGCID!!!: </label> <br>
-  <label>Catalog Name: <input type="number" #SearchCatalogName> </label>
+  <label>Search for a catalog by name: </label> <br>
+  <label>Catalog Name: <input type="text" #SearchCatalogName> </label>
   <button (click)="getCatalogEntry(SearchCatalogName.value)"> Get Entry </button>
 
   <div>
-    <h2>Here is the entry with the following info: </h2>
+    <h4>Here is the entry with the following info: </h4>
     <div *ngIf="catalogEntry"> 
-      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}} .
-        The name of the entry is {{catalogEntry.Name}}
+      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}}.
+        The name of the entry is {{catalogEntry.Name}}.
+        The date this entry was first created is {{catalogEntry.DateCreated}}.
+        The date this entry was last modified is {{catalogEntry.DateModified}}.
       </h3>  
   </div>
   
 </div>
 
 <div>
-  <label>Update a specific catalog entry: </label> <br>
+  <label>Update a specific catalog entry:
+    Note: At this time, we only allow the name to be updated. </label> <br>
   <label>Catalog Id: <input type="text" #UpdateCatalogId></label> <br>
   <label>Catalog Name: <input type="text" #UpdateCatalogName> </label>
-  
-  <!--Need to include the value!!!-->
   <button (click)= "updateCatalog(UpdateCatalogId.value, UpdateCatalogName.value)">Update Catalog Entry</button> 
 </div>
 
 <div>
-  <label>Delete a catalog entry: </label> <br>
-  <label>Catalog Id: <input type="string" #DeleteId></label> <br>
+  <label>Delete a catalog entry by NGCID: </label> <br>
+  <label>Catalog NGCID: <input type="string" #DeleteId></label> <br>
   <button (click)= "deleteCatalog(DeleteId.value)">Delete Catalog Entry</button> 
 </div>

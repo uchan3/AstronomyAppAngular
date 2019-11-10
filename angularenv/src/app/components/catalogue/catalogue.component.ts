@@ -23,7 +23,7 @@ export class CatalogueComponent implements OnInit {
   constructor(private catalogService: CatalogueService) { }
 
   ngOnInit() {
-    this.getCatalog(); //Needed to load this catalog!!! 
+    this.getCatalog(); //Load Catalog List. 
   }
 
   //Catalog Service Methods:
@@ -33,12 +33,17 @@ export class CatalogueComponent implements OnInit {
     this.catalogService.getCatalogList().subscribe(catalogList => this.catalogList = catalogList);
   };
 
-  //Get specific catalog entry. 
-  //TODO: Address error --> unable to get property ID
-  getCatalogEntry(name: number): void {
-    this.catalogService.getCatalogEntry(name).subscribe(entry => this.catalogEntry = entry);
-    console.log(this.catalogEntry.id);
-    console.log(this.catalogEntry.Name);
+  //Get specific catalog entry by id. 
+  //TODO: Address console error --> unable to get property ID
+  //Try getting an entry by name
+  getCatalogEntry(catalogName: string): void {
+    let id: number = this.catalogList.findIndex( entry => entry.Name == catalogName) + 1; //Add 1 to map to collection. 
+    console.log(id);
+    this.catalogService.getCatalogEntry(id).subscribe(entry => {
+      this.catalogEntry = entry;
+      console.log(this.catalogEntry);});
+    //console.log(this.catalogEntry.id);
+    //console.log(this.catalogEntry.Name);
   };
 
   //Add new catalog
@@ -47,44 +52,38 @@ export class CatalogueComponent implements OnInit {
     {
       CatalogId: catalogId,
       Name: catalogName, 
-      DateCreated: Date.now().toString(), //Get the date value.     
-      DateModified: Date.now().toString(),
-      
-      id: this.catalogList.length + 1 //Troubleshooting for in-memory-db
+      DateCreated: new Date().toString(), //Get the date value.     
+      DateModified: new Date().toString(),    
+      id: this.catalogList.length + 1 //Generate new ID within database
     };
 
-    //console.log(newcatalog.CatalogId); //Testing
-    //console.log(newcatalog.DateCreated);
-    //console.log(newcatalog.DateModified);
-    //console.log(newcatalog.Name);
+    console.log(newcatalog);
     this.catalogService.postCatalogEntry(newcatalog).subscribe(catalog => {this.catalogList.push(catalog)});
   };
 
-  //Update a catalog entry
+  //Update a catalog entry based on Catalog ID and Name. 
   updateCatalog(catalogId: string, catalogName: string): void {
     let updatecatalog = 
     {
-      id: this.catalogList.findIndex(update => update.CatalogId == catalogId) +1 , //for mapping to the DB
+      id: this.catalogList.findIndex(update => update.CatalogId == catalogId) +1 , //Map to DB collection.
       CatalogId: catalogId,
       Name: catalogName,
       DateCreated: this.catalogList.find( updateId => updateId.CatalogId == catalogId).DateCreated,
-      DateModified: Date.now().toString()
+      DateModified: new Date().toString()
     };
 
     console.log(updatecatalog);
 
-    this.catalogService.putCatalogEntry(updatecatalog).subscribe(
-      updatelist => {this.getCatalog()});
+    this.catalogService.putCatalogEntry(updatecatalog).subscribe(updatelist => {this.getCatalog()}); //Subscribe to updated list.
   };
 
   //TODO: Refactor delete. 
   deleteCatalog(catalogId: string): void {
       let id: number =  this.catalogList.findIndex(deleteEntry => deleteEntry.CatalogId == catalogId) + 1; //Map to DB (adding 1)
-      let deleteEntry: Catalog = this.catalogList.find(dEntry => dEntry.CatalogId == catalogId);
+      let deleteEntry: Catalog = this.catalogList[id];
       console.log(id);
       console.log(deleteEntry);
-      this.catalogService.deleteCatalogEntry(id).subscribe(
-        newlist => { this.getCatalog()});
+      this.catalogService.deleteCatalogEntry(id).subscribe( newlist => { this.getCatalog()});
   }
 
 }

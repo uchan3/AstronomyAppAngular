@@ -28,10 +28,11 @@ export class CatalogueService {
     return this.http.get<Catalog[]>(this.catalogURL);
   };
 
-  //GET: a specific catalog entry by ID???? Is the URL incorrect?!
+  //GET: a specific catalog entry by id. 
+  //TODO: Refactor to include query parameters. 
   getCatalogEntry(DBID: number) : Observable<Catalog> {
     return this.http.get<Catalog>(`${this.catalogURL}/${DBID}`); //Recall within PostMan, we need to match parameters...
-  }
+  };
 
   //POST: add new catalog entry. 
   postCatalogEntry(catalog: Catalog) : Observable<Catalog> {
@@ -39,15 +40,15 @@ export class CatalogueService {
   };
 
   //PUT: update a specific catalog entry. 
-  //TODO: 
+  //TODO: Refactor to include query parameters.
   putCatalogEntry(catalog: Catalog) : Observable<Catalog> {
     return this.http.put<Catalog>(`${this.catalogURL}/${catalog.id}`, catalog, this.httpOptions);
-  }
+  };
 
   //DELETE: delete a specific catalog entry. 
   deleteCatalogEntry(DBID: number) : Observable<Catalog> {
     return this.http.delete<Catalog>(`${this.catalogURL}/${DBID}`, this.httpOptions); //Note this method requires httpOptions.
-  }
+  };
 }
 
 
