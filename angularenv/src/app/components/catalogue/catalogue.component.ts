@@ -18,12 +18,14 @@ export class CatalogueComponent implements OnInit {
 
   catalogList: Catalog [];
   catalogEntry: Catalog;
+  catalogStatus: boolean = false;
   //postList= PostList;
   
   constructor(private catalogService: CatalogueService) { }
 
   ngOnInit() {
     this.getCatalog(); //Load Catalog List. 
+    //this.getCatalogEntry(name);
   }
 
   //Catalog Service Methods:
@@ -35,13 +37,16 @@ export class CatalogueComponent implements OnInit {
 
   //Get specific catalog entry by id. 
   //TODO: Address console error --> unable to get property ID
-  //Try getting an entry by name
+  //Try getting an entry by name -->Works. But, need to find way to display. 
   getCatalogEntry(catalogName: string): void {
-    let id: number = this.catalogList.findIndex( entry => entry.Name == catalogName) + 1; //Add 1 to map to collection. 
-    console.log(id);
-    this.catalogService.getCatalogEntry(id).subscribe(entry => {
+    //let id: number = this.catalogList.findIndex( entry => entry.Name == catalogName) + 1; //Add 1 to map to collection. 
+    //console.log(id);
+    this.catalogService.getCatalogEntry(catalogName).subscribe(entry => {
       this.catalogEntry = entry;
-      console.log(this.catalogEntry);});
+
+      this.catalogStatus = true;
+      console.log(this.catalogEntry);
+    });
     //console.log(this.catalogEntry.id);
     //console.log(this.catalogEntry.Name);
   };

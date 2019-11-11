@@ -8,9 +8,7 @@
       <th>Name</th>
       <th>Date Created</th>
       <th>Date Modified</th>
-      <th>Post Title</th>
-      <th>Comments</th>
-      <th>Picture</th>
+      <th>Post Information</th>
     </tr>    
   </thead>
 
@@ -21,6 +19,9 @@
       <td>{{catalog.Name}}</td>
       <td>{{catalog.DateCreated}}</td>
       <td>{{catalog.DateModified}}</td>
+      <td>
+        <app-post CatalogID ="{{catalog.CatalogId}}"></app-post>
+      </td>
       
       <!--Traverse thru the postList.-->
       <!--<td>{{postList[i].title}}</td>-->
@@ -45,10 +46,10 @@
   <div>
     <h4>Here is the entry with the following info: </h4>
     <div *ngIf="catalogEntry"> 
-      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}}.
-        The name of the entry is {{catalogEntry.Name}}.
-        The date this entry was first created is {{catalogEntry.DateCreated}}.
-        The date this entry was last modified is {{catalogEntry.DateModified}}.
+      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}}. <br>
+        The name of the entry is {{catalogEntry.Name}}. <br>
+        The date this entry was first created is {{catalogEntry.DateCreated}}. <br>
+        The date this entry was last modified is {{catalogEntry.DateModified}}. <br>
       </h3>  
   </div>
   

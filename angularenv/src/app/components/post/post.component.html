@@ -1,1 +1,21 @@
 <p>post works!</p>
+
+  <h2>This is a mini post-table.</h2>
+  <table class="table table-striped">
+    <thead>
+      <th>Title</th>
+      <th>Description</th>
+      <th>URL</th>
+      <th>User</th>
+    </thead>
+
+  <tbody *ngFor="let post of postList">
+      <tr> 
+        <td>{{post.Title}}</td> <!--For reference-->
+        <td>{{post.Description}}</td>
+        <td>{{post.URL}}</td>
+        <td>{{post.User}}</td>
+      </tr>
+    </tbody>
+</table>
+
