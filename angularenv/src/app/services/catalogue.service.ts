@@ -29,9 +29,9 @@ export class CatalogueService {
   };
 
   //GET: a specific catalog entry by id. 
-  //TODO: Refactor to include query parameters. 
-  getCatalogEntry(DBID: number) : Observable<Catalog> {
-    return this.http.get<Catalog>(`${this.catalogURL}/${DBID}`); //Recall within PostMan, we need to match parameters...
+  //TODO: Refactor to include query parameters?! TRY: by name
+  getCatalogEntry(name: string) : Observable<Catalog> {
+    return this.http.get<Catalog>(`${this.catalogURL}?Name=${name}`); //Recall within PostMan, we need to match parameters...
   };
 
   //POST: add new catalog entry. 

@@ -31,16 +31,16 @@ export class AstronomyDBService  implements InMemoryDbService {
 
     let PostList: Post[] = 
     [
-      {PostId: 'P1', title: 'WhirlPool Galaxy by NASA', description: 'Located within constellation Canes Venatici', 
+      {id: 1, PostId: 'P1', title: 'WhirlPool Galaxy by NASA', description: 'Located within constellation Canes Venatici', 
       url: 'https://www.nasa.gov/sites/default/files/thumbnails/image/m51-and-companion_0.jpg', 
       UserId: 'User2', CatalogId: 'NGC 5194'}, 
-      {PostId: 'P2', title: 'Orion Nebula by NASA', description: 'Located within constellation Orion', 
+      {id: 2, PostId: 'P2', title: 'Orion Nebula by NASA', description: 'Located within constellation Orion', 
       url: 'https://www.nasa.gov/sites/default/files/thumbnails/image/orion-nebula-xlarge_web.jpg', 
       UserId: 'User3', CatalogId: 'NGC 1976'}, 
-      {PostId: 'P3', title: 'Orion Nebula', description: 'Located within constellation Orion, Taken by Marian McGaffney', 
+      {id: 3, PostId: 'P3', title: 'Orion Nebula', description: 'Located within constellation Orion, Taken by Marian McGaffney', 
       url: 'https://en.es-static.us/upl/2012/11/Orion-belt-nebula-Mrian-McGaffney-12-6-2013.jpg', 
       UserId: 'User1', CatalogId: 'NGC 1976'}, 
-      {PostId: 'P4', title: 'WhirlPool Galaxy', description: 'Located within constellation Canes Venatici, Based on video by NASA', 
+      {id: 4, PostId: 'P4', title: 'WhirlPool Galaxy', description: 'Located within constellation Canes Venatici, Based on video by NASA', 
       url: 'https://cdn.mos.cms.futurecdn.net/raU4GNzSgWBD9ustuBkaL5-650-80.jpg', 
       UserId: 'User2', CatalogId: 'NGC 5194'}, 
     ];
