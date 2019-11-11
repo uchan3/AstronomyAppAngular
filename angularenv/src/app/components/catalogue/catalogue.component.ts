@@ -6,7 +6,6 @@ import { Post } from 'src/app/classes/Post';
 
 //Testing Data
 import { CatalogList } from 'src/app/testData/CatalogList';
-import { PostList } from 'src/app/testData/PostList';
 import { CatalogueService } from 'src/app/services/catalogue.service';
 
 @Component({

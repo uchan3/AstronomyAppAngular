@@ -29,7 +29,7 @@ export class AstronomyDBService  implements InMemoryDbService {
       {id: 2, CatalogId: 'NGC 1976', Name: 'Orion Nebula', DateCreated: '5/1/2019', DateModified: ''}
     ];
 
-    let PostList: Post[] = 
+    let PostList = 
     [
       {id: 1, PostId: 'P1', title: 'WhirlPool Galaxy by NASA', description: 'Located within constellation Canes Venatici', 
       url: 'https://www.nasa.gov/sites/default/files/thumbnails/image/m51-and-companion_0.jpg', 
