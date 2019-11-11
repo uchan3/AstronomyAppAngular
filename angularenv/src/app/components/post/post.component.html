@@ -4,6 +4,7 @@
   <table>
     <thead>
       <th>ID</th>
+      <th>PostID</th>
       <th>Title</th>
       <th>Description</th>
       <th>Image</th>
@@ -13,11 +14,29 @@
   <tbody *ngFor="let post of PostList">
       <tr> 
         <td>{{post.id}}</td>
+        <td>{{post.PostId}}</td>
         <td>{{post.title}}</td> <!--For reference-->
         <td>{{post.description}}</td> 
         <th><img src="{{post.url}}" class="responsive"></th>
         <td>{{post.UserId}}</td>
       </tr>
     </tbody>
-</table>
+  </table>
 
+<h2>POST CRUD Operations</h2>
+<h3>Add a new post!</h3>
+<label>New PostID: <input type="text" #PostID></label>
+<label>New PostTitle: <input type="text" #PostTitle></label>
+<label>New PostDescription: <input type="text" #PostDesc></label>
+<label>New PostURL: <input type="text" #PostURL></label>
+<label>New PostUserID: <input type="text" #PostUser></label>
+<button (click)="addPost(PostID.value, PostTitle.value, PostDesc.value, PostURL.value, PostUser.value)">Submit new Post!</button>
+
+<h3>Update a post!</h3>
+<label>Get PostID: <input type="text" #FetchPostID></label>
+<label>New Description: <input type="text" #UpdateDesc></label>
+<button (click)="updatePost(FetchPostID.value, UpdateDesc.value)">Update Post</button>
+
+<h3>Delete a post!</h3>
+<label>Select PostID to delete: <input type="text" #DeletePostID></label>
+<button (click)="deletePost(DeletePostID.value)">Delete the post</button>

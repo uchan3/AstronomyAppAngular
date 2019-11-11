@@ -38,7 +38,7 @@ export class PostService {
   }
 
   //DELETE: remove post. 
-  deletePost(POSTID: number) : Observable<Post> {
-    return this.http.delete<Post>(`${this.postURL}/${POSTID}`, this.httpOptions);
+  deletePost(DBID: number) : Observable<Post> {
+    return this.http.delete<Post>(`${this.postURL}/${DBID}`, this.httpOptions);
   }
 }
