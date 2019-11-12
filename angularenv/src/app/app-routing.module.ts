@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { APODComponent } from './components/apod/apod.component';
+import { CatalogueComponent } from './components/catalogue/catalogue.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   {
-    path: "apod", 
-    component: APODComponent
+    path: "", 
+    component: HomeComponent  
+  }, 
+  {
+    path: "catalog", 
+    component: CatalogueComponent
   }
 ];
 
