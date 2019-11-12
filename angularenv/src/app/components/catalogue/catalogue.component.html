@@ -33,11 +33,18 @@
   <div class="row">
 
     <div class="col-sm">
-
-      <label>Add a new catalog entry: </label> <br>
-      <label>Catalog Id: <input type="text" #CatalogId></label> <br>
-      <label>Catalog Name: <input type="text" #CatalogName> </label>
-      <button (click)= "addCatalog(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
+      
+      <!--Let's build a template-driven form.-->
+      <form #addCatalogForm="ngForm" (ngSubmit)="addCatalog(catalogEntry)">
+        <h4>Add a new catalog entry: </h4> <br>
+        <label for="CatalogID">Catalog Id: 
+          <input type="text" class="form-control" id="CatalogID" [(ngModel)]="catalogEntry.CatalogId" name="CatalogId">
+        </label> <br>
+        <label for="CatalogName">Catalog Name: 
+          <input type="text" class="form-control" id="CatalogName" [(ngModel)]="catalogEntry.Name" name="Name"> </label>
+        <button type="submit">Add Catalog Entry</button>
+      </form>
+       
 
     </div>
   

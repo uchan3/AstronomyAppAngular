@@ -14,9 +14,16 @@ import { CatalogueService } from 'src/app/services/catalogue.service';
   styleUrls: ['./catalogue.component.css'], 
 })
 export class CatalogueComponent implements OnInit {
-
+  
   catalogList: Catalog [];
-  catalogEntry: Catalog;
+  catalogEntry: Catalog =
+  {
+    id: null, 
+    CatalogId: null, 
+    Name: null, 
+    DateCreated: null, 
+    DateModified: null
+  };
   catalogStatus: boolean = false;
   //postList= PostList;
   
@@ -61,18 +68,21 @@ export class CatalogueComponent implements OnInit {
   };
 
   //Add new catalog
-  addCatalog(catalogId: string, catalogName: string): void {
-    let newcatalog: Catalog = 
-    {
-      CatalogId: catalogId,
-      Name: catalogName, 
-      DateCreated: new Date().toString(), //Get the date value.     
-      DateModified: new Date().toString(),    
-      id: this.catalogList.length + 1 //Generate new ID within database
-    };
+  addCatalog(newCatalogEntry: Catalog): void {
+    // let newcatalog: Catalog = 
+    // {
+    //   CatalogId: catalogId,
+    //   Name: catalogName, 
+    //   DateCreated: new Date().toString(), //Get the date value.     
+    //   DateModified: new Date().toString(),    
+    //   id: this.catalogList.length + 1 //Generate new ID within database
+    // };
+    newCatalogEntry.DateCreated = new Date().toString();
+    newCatalogEntry.DateModified = new Date().toString();
+    newCatalogEntry.id = this.catalogList.length + 1;
 
-    console.log(newcatalog);
-    this.catalogService.postCatalogEntry(newcatalog).subscribe(catalog => {this.catalogList.push(catalog)});
+    console.log(newCatalogEntry);
+    this.catalogService.postCatalogEntry(newCatalogEntry).subscribe(catalog => {this.catalogList.push(catalog)});
   };
 
   //Update a catalog entry based on Catalog ID and Name. 
