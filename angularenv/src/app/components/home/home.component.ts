@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private apodService: APODService ) { }
 
-  APODTitle: string;
+  APODTitle : string;
   APODDate: string;
   APODURL: string;
   APODDesc: string;
