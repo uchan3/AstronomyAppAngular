@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { APODComponent } from './apod/apod.component';
+import { APODComponent } from './components/apod/apod.component';
 
 
 const routes: Routes = [
