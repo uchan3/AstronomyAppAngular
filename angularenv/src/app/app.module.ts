@@ -26,7 +26,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule, 
-    HttpClientInMemoryWebApiModule.forRoot( AstronomyDBService, {dataEncapsulation: false})
+    HttpClientInMemoryWebApiModule.forRoot( AstronomyDBService, {passThruUnknownUrl: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

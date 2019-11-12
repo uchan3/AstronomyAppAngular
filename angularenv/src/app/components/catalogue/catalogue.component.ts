@@ -12,7 +12,6 @@ import { CatalogueService } from 'src/app/services/catalogue.service';
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
   styleUrls: ['./catalogue.component.css'], 
-  providers: []
 })
 export class CatalogueComponent implements OnInit {
 
