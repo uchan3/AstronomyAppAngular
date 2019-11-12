@@ -15,19 +15,19 @@ export class HomeComponent implements OnInit {
   APODURL: string;
   APODDesc: string;
   ngOnInit() {
-    this.getPicture(); //Load picture
+    //this.getPicture(); //Load picture
   }
 
   //Get the picture of the day. 
-  getPicture() : void {
-    this.apodService.getPictureOfDay().subscribe( data => 
-      {
-        console.log(data)
-        this.APODTitle = data['title'];
-        this.APODDate = data['date'];
-        this.APODURL = data['url'];
-        this.APODDesc = data['explanation'];
-      });
-  }
+  // getPicture() : void {
+  //   this.apodService.getPictureOfDay().subscribe( data => 
+  //     {
+  //       console.log(data)
+  //       this.APODTitle = data['title'];
+  //       this.APODDate = data['date'];
+  //       this.APODURL = data['url'];
+  //       this.APODDesc = data['explanation'];
+  //     });
+  // }
 
 }

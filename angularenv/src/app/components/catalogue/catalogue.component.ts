@@ -35,16 +35,26 @@ export class CatalogueComponent implements OnInit {
   };
 
   //Get specific catalog entry by id. 
-  //TODO: Address console error --> unable to get property ID
   //Try getting an entry by name -->Works. But, need to find way to display. 
+  //Solution: Response was in the form of an array. So, needed to display first element. 
   getCatalogEntry(catalogName: string): void {
     //let id: number = this.catalogList.findIndex( entry => entry.Name == catalogName) + 1; //Add 1 to map to collection. 
     //console.log(id);
     this.catalogService.getCatalogEntry(catalogName).subscribe(entry => {
       this.catalogEntry = entry;
-
-      this.catalogStatus = true;
-      console.log(this.catalogEntry);
+      
+      if (Object.keys(this.catalogEntry).length ==0)
+      {
+        this.catalogStatus = false;
+        console.log("Where is the data?");
+      }
+      else
+      {
+        this.catalogStatus = true;
+        //this.catalogIDPlace = this.catalogEntry.CatalogId;
+        console.log(this.catalogEntry);
+      }
+      
     });
     //console.log(this.catalogEntry.id);
     //console.log(this.catalogEntry.Name);

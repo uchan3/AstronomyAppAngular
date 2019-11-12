@@ -23,49 +23,55 @@
         <!--<app-post CatalogID ="{{catalog.CatalogId}}"></app-post>-->
         <app-post [CatalogID] ="catalog.CatalogId"></app-post>
       </td>
-      
-      <!--Traverse thru the postList.-->
-      <!--<td>{{postList[i].title}}</td>-->
-
     </tr>
   </tbody>
 </table>
 
-<h2>Catalog CRUD Operations</h2>
-<div>
-  <label>Add a new catalog entry: </label> <br>
-  <label>Catalog Id: <input type="text" #CatalogId></label> <br>
-  <label>Catalog Name: <input type="text" #CatalogName> </label>
-  <button (click)= "addCatalog(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
-</div>
+<h2 class="text-center">Catalog CRUD Operations</h2>
 
-<div>
-  <label>Search for a catalog by name: </label> <br>
-  <label>Catalog Name: <input type="text" #SearchCatalogName> </label>
-  <button (click)="getCatalogEntry(SearchCatalogName.value)"> Get Entry </button>
+<div class="container">
+  <div class="row">
 
-  <div>
-    <h4>Here is the entry with the following info: </h4>
-    <div *ngIf="catalogEntry"> 
-      <h3>The NGCID of the entry is {{catalogEntry.CatalogId}}. <br>
-        The name of the entry is {{catalogEntry.Name}}. <br>
-        The date this entry was first created is {{catalogEntry.DateCreated}}. <br>
-        The date this entry was last modified is {{catalogEntry.DateModified}}. <br>
-      </h3>  
-  </div>
+    <div class="col-sm">
+
+      <label>Add a new catalog entry: </label> <br>
+      <label>Catalog Id: <input type="text" #CatalogId></label> <br>
+      <label>Catalog Name: <input type="text" #CatalogName> </label>
+      <button (click)= "addCatalog(CatalogId.value, CatalogName.value)">Add Catalog Entry</button> 
+
+    </div>
   
-</div>
+    <div class="col-sm">
 
-<div>
-  <label>Update a specific catalog entry:
-    Note: At this time, we only allow the name to be updated. </label> <br>
-  <label>Catalog Id: <input type="text" #UpdateCatalogId></label> <br>
-  <label>Catalog Name: <input type="text" #UpdateCatalogName> </label>
-  <button (click)= "updateCatalog(UpdateCatalogId.value, UpdateCatalogName.value)">Update Catalog Entry</button> 
-</div>
+      <label>Search for a catalog by name: </label> <br>
+      <label>Catalog Name: <input type="text" #SearchCatalogName> </label>
+      <button (click)="getCatalogEntry(SearchCatalogName.value)"> Get Entry </button>
 
-<div>
-  <label>Delete a catalog entry by NGCID: </label> <br>
-  <label>Catalog NGCID: <input type="string" #DeleteId></label> <br>
-  <button (click)= "deleteCatalog(DeleteId.value)">Delete Catalog Entry</button> 
+      <div>
+      <h4>Here is the entry with the following info (If applicable): </h4>
+        <div *ngIf="catalogStatus"> 
+          <h3>The NGCID of the entry is {{catalogEntry[0].CatalogId}}. <br>
+              The name is {{catalogEntry[0].Name}}. <br>
+              The DateCreated is {{catalogEntry[0].DateCreated}}. <br>
+              The DateModified is {{catalogEntry[0].DateModified}}. 
+          </h3>  
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm">
+      <label>Update a specific catalog entry:
+            Note: At this time, we only allow the name to be updated. </label> <br>
+      <label>Catalog Id: <input type="text" #UpdateCatalogId></label> <br>
+      <label>Catalog Name: <input type="text" #UpdateCatalogName> </label>
+      <button (click)= "updateCatalog(UpdateCatalogId.value, UpdateCatalogName.value)">Update Catalog Entry</button> 
+    </div>
+
+    <div class="col-sm">
+      <label>Delete a catalog entry by NGCID: </label> <br>
+      <label>Catalog NGCID: <input type="string" #DeleteId></label> <br>
+      <button (click)= "deleteCatalog(DeleteId.value)">Delete Catalog Entry</button> 
+    </div>
+
+  </div>
 </div>
