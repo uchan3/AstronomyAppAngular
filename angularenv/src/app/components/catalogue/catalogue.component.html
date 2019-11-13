@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Date Created</th>
       <th>Date Modified</th>
+      <th>NASA Official Image</th>
       <th>Post Information</th>
     </tr>    
   </thead>
@@ -19,8 +20,12 @@
       <td>{{catalog.Name}}</td>
       <td>{{catalog.DateCreated}}</td>
       <td>{{catalog.DateModified}}</td>
-      <td>
 
+      <td>
+        <app-nasa-image-api [CatalogID]="catalog.Name"></app-nasa-image-api>
+      </td>
+
+      <td>
         <app-post [CatalogID] ="catalog.CatalogId"></app-post>
       </td>
     </tr>

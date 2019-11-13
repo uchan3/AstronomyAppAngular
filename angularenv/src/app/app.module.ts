@@ -12,6 +12,7 @@ import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { HomeComponent } from './components/home/home.component';
+import { NasaImageAPIComponent } from './components/nasa-image-api/nasa-image-api.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
     PostComponent,
     CommentComponent,
     HomeComponent,
+    NasaImageAPIComponent,
   ],
   imports: [
     BrowserModule,
