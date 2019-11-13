@@ -23,20 +23,34 @@
     </tbody>
   </table>
 
-<h2>POST CRUD Operations</h2>
-<h3>Add a new post!</h3>
-<label>New PostID: <input type="text" #PostID></label>
-<label>New PostTitle: <input type="text" #PostTitle></label>
-<label>New PostDescription: <input type="text" #PostDesc></label>
-<label>New PostURL: <input type="text" #PostURL></label>
-<label>New PostUserID: <input type="text" #PostUser></label>
-<button (click)="addPost(PostID.value, PostTitle.value, PostDesc.value, PostURL.value, PostUser.value)">Submit new Post!</button>
+<h2 class="text-center">POST CRUD Operations</h2>
 
-<h3>Update a post!</h3>
-<label>Get PostID: <input type="text" #FetchPostID></label>
-<label>New Description: <input type="text" #UpdateDesc></label>
-<button (click)="updatePost(FetchPostID.value, UpdateDesc.value)">Update Post</button>
+<div class="container">
+  <div class="row">
 
-<h3>Delete a post!</h3>
-<label>Select PostID to delete: <input type="text" #DeletePostID></label>
-<button (click)="deletePost(DeletePostID.value)">Delete the post</button>
+    <div class="col-sm">
+      <h3>Add a new post!</h3>
+      <label>New PostID: <input type="text" #PostID></label>
+      <label>New PostTitle: <input type="text" #PostTitle></label>
+      <label>New PostDescription: <input type="text" #PostDesc></label>
+      <label>New PostURL: <input type="text" #PostURL></label>
+      <label>New PostUserID: <input type="text" #PostUser></label>
+      <button (click)="addPost(PostID.value, PostTitle.value, PostDesc.value, PostURL.value, PostUser.value)">Submit new Post!</button>
+    </div>
+    
+    <div class="col-sm">
+      <h3>Update a post!</h3>
+      <label>Get PostID: <input type="text" #FetchPostID></label>
+      <label>New Description: <input type="text" #UpdateDesc></label>
+      <button (click)="updatePost(FetchPostID.value, UpdateDesc.value)">Update Post</button>
+    </div>
+    
+
+    <div class="col-sm">
+      <h3>Delete a post!</h3>
+      <label>Select PostID to delete: <input type="text" #DeletePostID></label>
+      <button (click)="deletePost(DeletePostID.value)">Delete the post</button>
+    </div>
+
+  </div>
+</div>

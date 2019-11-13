@@ -4,8 +4,6 @@ import { Catalog } from 'src/app/classes/Catalog';
 //TODO: Separate Post from Catalog
 import { Post } from 'src/app/classes/Post';
 
-//Testing Data
-import { CatalogList } from 'src/app/testData/CatalogList';
 import { CatalogueService } from 'src/app/services/catalogue.service';
 
 @Component({
@@ -16,6 +14,7 @@ import { CatalogueService } from 'src/app/services/catalogue.service';
 export class CatalogueComponent implements OnInit {
   
   catalogList: Catalog [];
+  //Catalog Entry Form
   catalogEntry: Catalog =
   {
     id: null, 
@@ -24,14 +23,13 @@ export class CatalogueComponent implements OnInit {
     DateCreated: null, 
     DateModified: null
   };
+  
   catalogStatus: boolean = false;
-  //postList= PostList;
   
   constructor(private catalogService: CatalogueService) { }
 
   ngOnInit() {
     this.getCatalog(); //Load Catalog List. 
-    //this.getCatalogEntry(name);
   }
 
   //Catalog Service Methods:
@@ -58,7 +56,6 @@ export class CatalogueComponent implements OnInit {
       else
       {
         this.catalogStatus = true;
-        //this.catalogIDPlace = this.catalogEntry.CatalogId;
         console.log(this.catalogEntry);
       }
       
@@ -77,6 +74,8 @@ export class CatalogueComponent implements OnInit {
     //   DateModified: new Date().toString(),    
     //   id: this.catalogList.length + 1 //Generate new ID within database
     // };
+    
+    //Need to capture DateCreated/Modified information the moment the form is submitted.
     newCatalogEntry.DateCreated = new Date().toString();
     newCatalogEntry.DateModified = new Date().toString();
     newCatalogEntry.id = this.catalogList.length + 1;
