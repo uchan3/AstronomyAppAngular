@@ -53,7 +53,7 @@ export class CatalogueComponent implements OnInit {
       else
       {
         this.catalogStatus = true;
-        console.log(this.catalogEntry);
+        //console.log(this.catalogEntry);
       }
       
     });
@@ -67,7 +67,7 @@ export class CatalogueComponent implements OnInit {
     newCatalogEntry.DateModified = new Date().toString();
     newCatalogEntry.id = this.catalogList.length + 1;
 
-    console.log(newCatalogEntry);
+    //console.log(newCatalogEntry);
     this.catalogService.postCatalogEntry(newCatalogEntry).subscribe(catalog => {this.catalogList.push(catalog)});
   };
 

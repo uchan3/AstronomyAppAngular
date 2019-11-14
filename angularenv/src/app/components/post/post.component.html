@@ -1,7 +1,6 @@
-<p>post works!</p>
-
-  <h2>This is a mini post-table.</h2>
-  <table>
+<h2>View through the list of posts related to {{CatalogID}}</h2>
+  
+<table>
     <thead>
       <th>ID</th>
       <th>PostID</th>
@@ -29,25 +28,39 @@
   <div class="row">
 
     <div class="col-sm">
-      <h3>Add a new post!</h3>
-      <label>New PostID: <input type="text" #PostID></label>
-      <label>New PostTitle: <input type="text" #PostTitle></label>
-      <label>New PostDescription: <input type="text" #PostDesc></label>
-      <label>New PostURL: <input type="text" #PostURL></label>
-      <label>New PostUserID: <input type="text" #PostUser></label>
-      <button (click)="addPost(PostID.value, PostTitle.value, PostDesc.value, PostURL.value, PostUser.value)">Submit new Post!</button>
+      <h4>Add a new post</h4>
+      <form #addPostForm="ngForm" (ngSubmit)="addPost(postEntry)">
+        <label for="PostID">New PostID: 
+          <input type="text" class="form-control" id="PostID" name="PostID" [(ngModel)]="postEntry.PostId">
+        </label>
+        <label for="PostTitle">New PostTitle: 
+          <input type="text" class="form-control" id="PostTitle" name="PostTitle" [(ngModel)]="postEntry.title">
+        </label>
+        <label for="PostDesc">New PostDescription: 
+          <input type="text" class="form-control" id="PostDesc" name ="PostDesc" [(ngModel)]="postEntry.description">
+        </label>
+        <label for="PostURL">New PostURL: 
+          <input type="text" class="form-control" id="PostURL" name="PostURL" [(ngModel)]="postEntry.url">
+        </label>
+        <label for="PostUserID">New PostUserID: 
+          <input type="text" class="form-control" id="PostUserID" name="PostUserID" [(ngModel)]="postEntry.UserId">
+        </label>
+
+        <button type="submit">Add a new post</button>
+      </form>
+      
     </div>
     
     <div class="col-sm">
-      <h3>Update a post!</h3>
-      <label>Get PostID: <input type="text" #FetchPostID></label>
-      <label>New Description: <input type="text" #UpdateDesc></label>
+      <h4>Update a post. At this time, you can only update the description. </h4>
+      <label>Type in the PostID to update: <input type="text" #FetchPostID></label>
+      <label>Updated Description: <input type="text" #UpdateDesc></label>
       <button (click)="updatePost(FetchPostID.value, UpdateDesc.value)">Update Post</button>
     </div>
     
 
     <div class="col-sm">
-      <h3>Delete a post!</h3>
+      <h4>Delete a post!</h4>
       <label>Select PostID to delete: <input type="text" #DeletePostID></label>
       <button (click)="deletePost(DeletePostID.value)">Delete the post</button>
     </div>

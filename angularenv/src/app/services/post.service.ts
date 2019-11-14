@@ -37,8 +37,10 @@ export class PostService {
     return this.http.put<Post>(`${this.postURL}/${post.id}`, post, this.httpOptions);
   }
 
-  //DELETE: remove post. 
+  //DELETE: remove post by ID. 
+  //TODO: in the future, consider removing based on Catalog Name?
   deletePost(DBID: number) : Observable<Post> {
     return this.http.delete<Post>(`${this.postURL}/${DBID}`, this.httpOptions);
   }
 }
+
