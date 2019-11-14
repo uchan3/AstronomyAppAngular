@@ -39,7 +39,7 @@
 
     <div class="col-sm">
       
-      <!--Let's build a template-driven form.-->
+      <!--Template-driven form.-->
       <form #addCatalogForm="ngForm" (ngSubmit)="addCatalog(catalogEntry)">
         <h4>Add a new catalog entry: </h4> <br>
         <label for="CatalogID">Catalog Id: 
@@ -54,34 +54,60 @@
     </div>
   
     <div class="col-sm">
-
-      <label>Search for a catalog by name: </label> <br>
-      <label>Catalog Name: <input type="text" #SearchCatalogName> </label>
+      
+        <h4>Search for a catalog entry by Catalog Name: </h4> <br>
+        <label for="CatalogName">Catalog Name: 
+          <input type="text" id="CatalogName" name="Name" #SearchCatalogName> 
+        </label>
+      
       <button (click)="getCatalogEntry(SearchCatalogName.value)"> Get Entry </button>
 
       <div>
-      <h4>Here is the entry with the following info (If applicable): </h4>
+      <h5>Here is the entry with the following info (If applicable): </h5>
+
         <div *ngIf="catalogStatus"> 
-          <h3>The NGCID of the entry is {{catalogEntry[0].CatalogId}}. <br>
-              The name is {{catalogEntry[0].Name}}. <br>
-              The DateCreated is {{catalogEntry[0].DateCreated}}. <br>
-              The DateModified is {{catalogEntry[0].DateModified}}. 
-          </h3>  
+
+          <table>
+            <thead>
+              <tr>
+                <th>NGCID</th>
+                <th>Name</th>
+                <th>Date Created</th>
+                <th>Date Modified</th>
+              </tr>
+            </thead>
+
+            <tbody *ngFor="let entry of catalogEntry">
+              <tr>
+                <td>{{entry.CatalogId}}</td>
+                <td>{{entry.Name}}</td>
+                <td>{{entry.DateCreated}}</td>
+                <td>{{entry.DateModified}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
         </div>
+
       </div>
     </div>
     
     <div class="col-sm">
-      <label>Update a specific catalog entry:
-            Note: At this time, we only allow the name to be updated. </label> <br>
-      <label>Catalog Id: <input type="text" #UpdateCatalogId></label> <br>
+      <h4>Update a specific catalog entry: <br>
+          Note: At this time, we only allow the name to be updated. </h4> <br>
+      <label>Catalog NGCID: 
+        <input type="text" #UpdateCatalogId>
+      </label> <br>
       <label>Catalog Name: <input type="text" #UpdateCatalogName> </label>
       <button (click)= "updateCatalog(UpdateCatalogId.value, UpdateCatalogName.value)">Update Catalog Entry</button> 
     </div>
 
     <div class="col-sm">
-      <label>Delete a catalog entry by NGCID: </label> <br>
-      <label>Catalog NGCID: <input type="string" #DeleteId></label> <br>
+      <h4>Delete a catalog entry by the CatalogId: </h4> <br>
+      <label>Catalog NGCID: 
+        <input type="string" #DeleteId>
+      </label> <br>
       <button (click)= "deleteCatalog(DeleteId.value)">Delete Catalog Entry</button> 
     </div>
 
