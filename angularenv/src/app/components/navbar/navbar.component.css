@@ -1,0 +1,16 @@
+/* Remove bullet points from the unordered list. */
+ul {
+  list-style-type: none;
+}
+
+/* Get the elements to align next to each other on one line. */
+/* li {
+  display: inline;
+} */
+
+a {
+  display: block;
+  padding: 10px; /*Increase the space*/
+  text-align: center;
+  font-size: large;
+}
