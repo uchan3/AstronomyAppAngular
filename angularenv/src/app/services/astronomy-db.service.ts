@@ -18,9 +18,9 @@ export class AstronomyDBService  implements InMemoryDbService {
   {
     let UserList: User[] = 
     [
-      {UserID: 'User1', LastName: 'Doe', FirstName: 'John', DateCreated: '8/1/2016', DateModified: ''}, 
-      {UserID: 'User2', LastName: 'Cheung', FirstName: 'Liu', DateCreated: '9/1/2016', DateModified: ''}, 
-      {UserID: 'User3', LastName: 'Sanchez', FirstName: 'Maria', DateCreated: '10/1/2016', DateModified: ''}, 
+      {id: 1, UserID: 'User1', LastName: 'Doe', FirstName: 'John', DateCreated: '8/1/2016', DateModified: ''}, 
+      {id: 2, UserID: 'User2', LastName: 'Cheung', FirstName: 'Liu', DateCreated: '9/1/2016', DateModified: ''}, 
+      {id: 3, UserID: 'User3', LastName: 'Sanchez', FirstName: 'Maria', DateCreated: '10/1/2016', DateModified: ''}, 
     ];
 
     let CatalogList =

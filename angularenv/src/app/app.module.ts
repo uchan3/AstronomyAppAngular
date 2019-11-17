@@ -13,6 +13,7 @@ import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { HomeComponent } from './components/home/home.component';
 import { NasaImageAPIComponent } from './components/nasa-image-api/nasa-image-api.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NasaImageAPIComponent } from './components/nasa-image-api/nasa-image-ap
     CommentComponent,
     HomeComponent,
     NasaImageAPIComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
