@@ -6,12 +6,12 @@
 <form #signInForm="ngForm" (ngSubmit)="validateUser(userForm)">
   <label for="UserID">User ID:
     <input type="text" class="form-control" id="UserID" [(ngModel)]="userForm.UserID" name="UserID">
-  </label>
+  </label> <br>
   <label for="FirstName">First Name:
     <input type="text" class="form-control" id="FirstName" [(ngModel)]="userForm.FirstName" name="FirstName">
-  </label>
+  </label> <br>
   <label for="LastName">Last Name:
     <input type="text" class="form-control" id="LastName" [(ngModel)]="userForm.LastName" name="LastName">
-  </label>
+  </label> <br>
   <button type="submit">LogIn</button>
 </form>
