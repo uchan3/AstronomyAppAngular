@@ -1,0 +1,17 @@
+<p>user works!</p>
+
+<h3>Please sign in.</h3>
+
+
+<form #signInForm="ngForm" (ngSubmit)="validateUser(userForm)">
+  <label for="UserID">User ID:
+    <input type="text" class="form-control" id="UserID" [(ngModel)]="userForm.UserID" name="UserID">
+  </label>
+  <label for="FirstName">First Name:
+    <input type="text" class="form-control" id="FirstName" [(ngModel)]="userForm.FirstName" name="FirstName">
+  </label>
+  <label for="LastName">Last Name:
+    <input type="text" class="form-control" id="LastName" [(ngModel)]="userForm.LastName" name="LastName">
+  </label>
+  <button type="submit">LogIn</button>
+</form>
