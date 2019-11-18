@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/classes/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,7 @@ import { User } from 'src/app/classes/User';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,11 +25,11 @@ export class UserComponent implements OnInit {
     DateModified: null
   };
 
-  validateLogIn: boolean = false; //False to prevent unauthorized login. 
+  validateLogIn: boolean = true; 
 
-  //Now: User can access platform by correctly logging in. 
+  //TODO: Refactor log-in with authentication/authorization in future. 
   validateUser(userSignIn: User) {
-    //Extract parameters out. 
+    //Extract parameters out of the form. 
     let userLoginId = userSignIn.UserID;
     let loginFirstName = userSignIn.FirstName;
     let loginLasttName = userSignIn.LastName;
@@ -42,6 +43,7 @@ export class UserComponent implements OnInit {
         else
         {
           this.validateLogIn = true;
+          this.router.navigate(['/catalog']); //Simple work-around for "successful log-in". 
           console.log("Welcome. You have successfully logged in.");
         }
       })

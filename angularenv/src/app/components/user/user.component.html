@@ -1,5 +1,3 @@
-<p>user works!</p>
-
 <h3>Please sign in.</h3>
 
 
@@ -15,3 +13,7 @@
   </label> <br>
   <button type="submit">LogIn</button>
 </form>
+
+<div *ngIf="validateLogIn==false">
+  <h3 style="color: crimson">Please check your information again. The login is not correct.</h3>
+</div>
