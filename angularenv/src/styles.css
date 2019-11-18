@@ -6,6 +6,9 @@ body {
   background-color: dimgray;
   /* background-image: url("~/assets/StarsGalaxy.jpg"); */
 }
+input {
+  background-color: rgb(6, 68, 139);
+}
 button {
   background-color: rgb(19, 58, 131);
 }
