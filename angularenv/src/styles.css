@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  color: white;
+}
+body {
+  background-color: dimgray;
+  /* background-image: url("~/assets/StarsGalaxy.jpg"); */
+}
+button {
+  background-color: rgb(19, 58, 131);
+}

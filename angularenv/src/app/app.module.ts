@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { PostComponent } from './components/post/post.component';
-import { CommentComponent } from './components/comment/comment.component';
 import { HomeComponent } from './components/home/home.component';
 import { NasaImageAPIComponent } from './components/nasa-image-api/nasa-image-api.component';
 import { UserComponent } from './components/user/user.component';
@@ -21,7 +20,6 @@ import { UserComponent } from './components/user/user.component';
     NavbarComponent,
     CatalogueComponent,
     PostComponent,
-    CommentComponent,
     HomeComponent,
     NasaImageAPIComponent,
     UserComponent,
