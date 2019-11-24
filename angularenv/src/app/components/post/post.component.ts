@@ -66,6 +66,7 @@ export class PostComponent implements OnInit {
   };
 
   //Delete a post by DBID, based on PostID. 
+  //TODO: Fix postID. Some deleting. Others not deleting.
   deletePost (PostID: string) : void 
   {
     let id: number = this.AllPostList.findIndex( deletePostID => deletePostID.PostId == PostID ) +1;
